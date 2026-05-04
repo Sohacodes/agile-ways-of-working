@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agile Ways of Working</title>
+  <meta name="description" content="A BM_24 Agile Ways of Working essay website based on TWIS and TWIShop team experience." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121933;
+      --card: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.12);
+      --text: #eef2ff;
+      --muted: #b8c0e0;
+      --accent: #8b5cf6;
+      --accent-2: #22c55e;
+      --accent-3: #38bdf8;
+      --shadow: 0 20px 60px rgba(0,0,0,0.28);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(139,92,246,0.22), transparent 28%),
+        radial-gradient(circle at top right, rgba(56,189,248,0.18), transparent 24%),
+        linear-gradient(180deg, #0a0f1d 0%, #0f1530 55%, #09111f 100%);
+      color: var(--text);
+      line-height: 1.75;
+    }
+    a { color: #a78bfa; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(9, 13, 28, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; padding: 14px 0;
+    }
+    .brand {
+      font-size: 0.95rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #ffffff;
+    }
+    .nav-links {
+      display: flex; gap: 18px; flex-wrap: wrap; justify-content: flex-end;
+    }
+    .nav-links a {
+      color: var(--muted); font-size: 0.92rem;
+    }
+    header.hero {
+      padding: 88px 0 52px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(139,92,246,0.12);
+      color: #d8ccff;
+      border: 1px solid rgba(167,139,250,0.28);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 18px 0 18px;
+      font-size: clamp(2.3rem, 5vw, 4.8rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      max-width: 900px;
+    }
+    .hero-sub {
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 24px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .meta-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    .meta-item {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .meta-item .label { color: #aab4d7; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .meta-item .value { margin-top: 8px; font-size: 1rem; color: #fff; font-weight: 600; }
+    main { padding: 38px 0 90px; }
+    section { margin-top: 26px; }
+    .section-head { margin-bottom: 18px; }
+    .section-kicker {
+      color: #8fdcff; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.78rem; margin-bottom: 8px;
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2.35rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+    p { margin: 0 0 16px; color: #edf0fb; }
+    .muted { color: var(--muted); }
+    .essay {
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px;
+    }
+    .essay .card { min-height: 100%; }
+    .callout {
+      border-left: 3px solid var(--accent-3);
+      background: rgba(56,189,248,0.08);
+      padding: 16px 18px;
+      border-radius: 16px;
+      color: #d7f2ff;
+      margin: 18px 0;
+    }
+    ul, ol { margin: 0 0 16px 22px; }
+    li { margin-bottom: 10px; }
+    .ticket {
+      margin-top: 18px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+    }
+    .ticket h3 { margin: 0 0 12px; font-size: 1.12rem; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .pill {
+      padding: 6px 10px; border-radius: 999px;
+      background: rgba(139,92,246,0.14); border: 1px solid rgba(139,92,246,0.3);
+      color: #ddd2ff; font-size: 0.8rem; letter-spacing: 0.03em;
+    }
+    .board {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 18px;
+    }
+    .column {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      padding: 16px;
+    }
+    .column h4 { margin: 0 0 12px; font-size: 0.96rem; }
+    .mini-card {
+      padding: 12px; border-radius: 14px; background: rgba(13,19,40,0.82); border: 1px solid rgba(255,255,255,0.08); margin-bottom: 10px;
+      font-size: 0.92rem;
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .refs p { font-size: 0.95rem; color: #dce4ff; }
+    footer {
+      padding: 30px 0 60px; color: #98a3cb; border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .small { font-size: 0.92rem; color: #b6c1e5; }
+    @media (max-width: 980px) {
+      .hero-grid, .essay, .grid-2, .board { grid-template-columns: 1fr; }
+      .meta-grid { grid-template-columns: 1fr; }
+      .nav-inner { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Agile Ways of Working</div>
+      <div class="nav-links">
+        <a href="#context">Context</a>
+        <a href="#frameworks">Frameworks</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#reflection">Reflection</a>
+        <a href="#references">APA</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow">BM_24 · Agile Ways of Working · TWIS Case</div>
+      <h1>Agile Ways of Working</h1>
+      <p class="hero-sub">This website presents a reflective essay on how agile ways of working were applied in a real team context at Total Wellness Initiative Singapore (TWIS), focusing on strategic development, LinkedIn marketing operations, and the launch of TWIShop. The essay argues that agile was most effective not as a rigid ritual set, but as a practical system for turning a social mission into coordinated, visible, and adaptable teamwork.</p>
+
+      <div class="hero-grid">
+        <div class="card">
+          <div class="section-kicker">Overview</div>
+          <p>The selected case is a team-based professional context rather than a recent solo founder project. TWIS is a Singapore-based social enterprise that promotes a ten-dimension wellness framework and combines educational outreach with operational initiatives that support its social mission, including TWIShop as a revenue-generating thrift and accessories initiative (<a href="https://www.totalwellnesssg.com/framework" target="_blank">TWIS Framework</a>; <a href="https://www.totalwellnesssg.com/twis10" target="_blank">TWIS 10 Dimensions</a>). In this setting, agile ways of working were not introduced as textbook ceremonies first; they emerged as a response to cross-functional coordination needs, fluctuating workloads, and the requirement to keep multiple teams aligned around one shared purpose.</p>
+          <p>The central claim of this essay is that a hybrid model worked best. Scrum was most useful for time-boxed strategic initiatives and campaign-like launch work, while Kanban was more suitable for the continuous weekly rhythm of marketing production. Limited scaling behavior similar to LeSS appeared during seasonal campaigns when marketing had to coordinate closely with adjacent teams, but heavyweight scaling frameworks were unnecessary because communication remained direct and the organizational structure was still relatively compact.</p>
+        </div>
+        <div class="card">
+          <div class="meta-grid">
+            <div class="meta-item">
+              <div class="label">Case</div>
+              <div class="value">TWIS &amp; TWIShop</div>
+            </div>
+            <div class="meta-item">
+              <div class="label">Primary Role</div>
+              <div class="value">Strategic Development Manager / Team Lead</div>
+            </div>
+            <div class="meta-item">
+              <div class="label">Main Methods</div>
+              <div class="value">Scrum, Kanban, Hybrid Scrumban, Retrospectives</div>
+            </div>
+            <div class="meta-item">
+              <div class="label">Team Sizes</div>
+              <div class="value">3, 8+, and 10+ across contexts</div>
+            </div>
+            <div class="meta-item">
+              <div class="label">Essay Focus</div>
+              <div class="value">Knowledge, application, reflection</div>
+            </div>
+            <div class="meta-item">
+              <div class="label">Deployment Slug</div>
+              <div class="value">agile-ways-of-working-twis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="context" class="essay">
+      <div class="card">
+        <div class="section-head">
+          <div class="section-kicker">Project context</div>
+          <h2>From mission to operational work</h2>
+        </div>
+        <p>Very briefly, the project context was about making wellness education actionable and visible. TWIS promoted a model of wellness that extends beyond only physical and mental health and includes additional dimensions such as social, occupational, digital, intellectual, spiritual, environmental, financial, and creative wellness, giving the team a broader educational mandate than a conventional wellness brand (<a href="https://www.totalwellnesssg.com/framework" target="_blank">TWIS Framework</a>; <a href="https://www.totalwellnesssg.com/twis10" target="_blank">TWIS 10 Dimensions</a>). That broad mission mattered for agile work because it created a large and potentially fragmented requirement space: awareness content, partnerships, events, community positioning, and a shop operation all had to point to the same value proposition.</p>
+        <p>In practice, the product vision was sliced into operational work through a layered logic. First came the mission-level intention: increase awareness and adoption of a more complete wellness framework. Second came delivery streams: strategic development initiatives, educational marketing output, and TWIShop as a concrete social-enterprise revenue mechanism. Third came iteration goals, such as launching a themed campaign, building a repeatable weekly publishing rhythm, or preparing a shop drop with defined content, photos, partnerships, and operational readiness.</p>
+        <p>This decomposition mirrors an agile principle: large goals become manageable through short feedback loops instead of fixed long-range assumptions. The Agile Manifesto prioritizes responding to change, collaboration, and working outcomes over heavy documentation or rigid planning, while its principles emphasize frequent delivery, sustainable pace, and regular adaptation (<a href="https://agilemanifesto.org" target="_blank">Agile Manifesto</a>; <a href="https://agilemanifesto.org/principles.html" target="_blank">Agile Principles</a>). In the TWIS context, that translated into a simple but effective question at every level of planning: what is the smallest meaningful unit of work that helps the audience understand wellness better or helps the team move a launch forward?</p>
+        <div class="callout">The most important structuring device was not a sophisticated tool. It was a shared mission that made prioritization possible when capacity was limited and work crossed education, commerce, and community-building.</div>
+        <p>My role in this context was strongly integrative. In strategic development, the work required defining initiatives, coordinating stakeholders, and aligning execution. In the LinkedIn marketing department, the role involved leading more than ten writers and designers and maintaining a stable production rhythm. In TWIShop, the role became even more hybrid because strategy, operations, partnerships, and media production had to move together. This meant acting partly like a product owner, partly like a team lead, and partly like an operations coordinator, even if those formal titles were not always used.</p>
+      </div>
+      <div class="card">
+        <div class="section-head">
+          <div class="section-kicker">Roles</div>
+          <h2>Team setup and responsibilities</h2>
+        </div>
+        <p>The project satisfied the module’s requirement for a genuine team context because the work depended on multiple people with distinct skills rather than solo output. The LinkedIn marketing team included writers and designers; TWIShop added photographers, models, interns, operational support, and partnership contributors; strategic development operated with a smaller core group focused on initiative design and coordination. This diversity made agile useful because information and bottlenecks were distributed across people, not centralized in one specialist.</p>
+        <p>The chosen frameworks were mapped to team reality rather than imposed abstractly. For sprint-based strategic work and launch preparation, the closest role mapping was: a product-owner-like lead defining priorities and expected value, a delivery group executing and refining scope, and a facilitator function shared informally through stand-ups and planning. In the marketing department, roles aligned more closely to a Kanban system: demand intake, content ideation, drafting, design, review, scheduling, and publication. During seasonal campaigns, coordination across teams resembled a lightweight scaling pattern because multiple workstreams had to converge around one external date.</p>
+        <p>How did everyone know what they should be working on and why? In the strongest periods, visibility created alignment. Weekly goals, visible content queues, launch task lists, and recurring check-ins linked daily work back to audience value. When that visibility weakened, people defaulted to local optimization, such as finishing isolated creative tasks without enough awareness of timing dependencies or campaign priorities. This was one of the clearest lessons from the case: agile only works when work is visible enough for people to self-coordinate around value, not just around activity.</p>
+      </div>
+    </section>
+
+    <section id="frameworks" class="grid-2">
+      <div class="card">
+        <div class="section-head">
+          <div class="section-kicker">Framework choice</div>
+          <h2>Why Scrum, Kanban, and a hybrid</h2>
+        </div>
+        <p>Scrum was selected for strategic development initiatives and for parts of TWIShop because these efforts had clear goals, deadline pressure, and bundle-based execution. Scrum is built around short iterations that end in a usable increment and includes planning, daily coordination, review, and retrospective events, making it suitable when a team needs focus and commitment over a defined window (<a href="https://www.scrum.org/agile-ways-working" target="_blank">Scrum.org</a>; <a href="https://agilemanifesto.org/principles.html" target="_blank">Agile Principles</a>). TWIShop launch work fit this pattern because campaign assets, operations, shoots, partnership touchpoints, and sales readiness had to come together within a narrow timeframe.</p>
+        <p>Kanban was more effective for the LinkedIn marketing department because the demand pattern was continuous rather than sprint-like. Kanban emphasizes visualizing work, limiting work in progress, and managing flow instead of forcing delivery into time-boxed containers, which is especially useful in environments with recurring intake and frequent priority shifts (<a href="https://www.totalwellnesssg.com/framework" target="_blank">TWIS Framework</a>; <a href="https://agilealliance.org/resources/experience-reports/scrum-kanban-teams-journey/" target="_blank">Agile Alliance Case</a>). For educational content, this meant a board-based rhythm outperformed strict sprints because the key challenge was throughput quality and coordination, not merely sprint completion.</p>
+        <p>The hybrid approach emerged because neither framework alone matched all contexts. TWIShop, for example, operated with launch batches that looked like sprints, but the surrounding creative and coordination work often flowed more continuously. In effect, this became a Scrumban-style pattern: sprint intentions for major releases with Kanban-style visibility for day-to-day execution. This adaptation reflects a mature agile mindset better than literal framework purity, because the method served the work rather than the reverse.</p>
+      </div>
+      <div class="card">
+        <div class="section-head">
+          <div class="section-kicker">Practices</div>
+          <h2>Events, artifacts, and XP logic</h2>
+        </div>
+        <p>The practices applied most clearly were backloging, prioritization, stand-up style check-ins, sprint planning for campaign-like work, review moments, and retrospectives. User stories were the most useful requirement artifact because they forced the team to translate broad ideas into a persona, an action, and a value statement. The INVEST logic for user stories—independent, negotiable, valuable, estimable, small, and testable—was especially helpful for refining vague initiatives into executable tickets (<a href="https://blog.logrocket.com/product-management/writing-meaningful-user-stories-invest-principle/" target="_blank">INVEST</a>; <a href="https://www.atlassian.com/agile/project-management/user-stories" target="_blank">Atlassian User Stories</a>).</p>
+        <p>Extreme Programming was not adopted formally, yet some XP-like attitudes appeared through fast feedback and iterative improvement of creative assets. For example, campaign copy, photo selections, and content sequences were reviewed in short loops rather than completed in isolation and unveiled at the end. That matters because agile is not limited to software code; many of its strongest benefits come from reducing handoff waste and getting feedback before expensive rework accumulates.</p>
+        <p>Retrospectives were the clearest expression of the agile mindset in this case. Regular reflection on what worked, what created delays, and what should change next is central to agile thinking (<a href="https://www.theprojectgroup.com/blog/en/agile-retrospective/" target="_blank">Retrospective Methods</a>; <a href="https://agilemanifesto.org/principles.html" target="_blank">Agile Principles</a>). When problems became recurring rather than incidental, the A3 problem-solving logic was useful because it framed the issue in terms of current condition, root cause, countermeasures, and measurable follow-up rather than blame (<a href="https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0076833" target="_blank">A3 Problem Solving</a>).</p>
+      </div>
+    </section>
+
+    <section id="requirements" class="card">
+      <div class="section-head">
+        <div class="section-kicker">Requirements to tickets</div>
+        <h2>Three examples from requirement to work item</h2>
+      </div>
+      <p>The module requires three examples of how requirements were translated into work tickets. The examples below are reconstructed from the TWIS context and are realistic to the actual team structure, project goals, and type of work performed. Their purpose is not to claim a perfect archival record, but to show how agile requirement thinking operated in practice and how the team reflected on it.</p>
+
+      <div class="ticket">
+        <div class="pill-row">
+          <span class="pill">Example 1</span>
+          <span class="pill">Mandatory user story</span>
+          <span class="pill">Lifecycle shown</span>
+        </div>
+        <h3>User Story: TWIShop discovery post</h3>
+        <p><strong>Story title:</strong> As a cost-conscious wellness-oriented young adult, I want to discover affordable second-hand fashion through a trustworthy and visually appealing post, so that I can shop sustainably while supporting a meaningful social mission.</p>
+        <p><strong>What:</strong> Create a LinkedIn and social campaign post set for a TWIShop drop featuring selected items, pricing clarity, visual styling, and a short explanation of how the shop supports TWIS’s broader wellness mission.</p>
+        <p><strong>Why:</strong> Users needed more than product visibility; they needed context and trust. Because TWIShop was attached to a social-enterprise identity, the value proposition depended on combining affordability, sustainability, and mission alignment rather than treating the shop as ordinary resale commerce.</p>
+        <p><strong>Acceptance criteria:</strong> the post set includes at least one lead visual and two supporting visuals; copy clearly explains item value and mission link; pricing and call-to-action are visible; content is approved by both operations and marketing lead; publication timing aligns with item availability; success is measured through reach, click-through or inquiry rate, and conversion signal such as direct message intent.</p>
+        <p><strong>Lifecycle:</strong> The requirement began as a broad business need—“make the next shop batch visible and convert interest.” During refinement, the team narrowed the audience, clarified the emotional trigger, and recognized that trust and mission explanation were part of the feature, not decoration. The story was then broken into subtasks: select products, brief shoot concept, create copy options, design carousel, review stock accuracy, schedule publication, and monitor response. This worked well because the story created a shared user perspective, but it also revealed a limitation: creative work often seemed small at first and then expanded because quality expectations were discovered during execution. That means the story was valuable and testable, but only partly estimable at the beginning.</p>
+      </div>
+
+      <div class="ticket">
+        <div class="pill-row">
+          <span class="pill">Example 2</span>
+          <span class="pill">Epic to tasks</span>
+        </div>
+        <h3>Epic: Seasonal wellness awareness campaign</h3>
+        <p><strong>Epic goal:</strong> Increase public awareness of the ten dimensions of wellness during a seasonal campaign by combining educational content, community engagement, and event-linked promotion.</p>
+        <p><strong>Derived tickets:</strong> define key campaign message; create content calendar for dimension-specific posts; assign writers by dimension; brief designers on visual consistency; schedule approval checkpoints; coordinate event marketing assets; gather engagement data after publication.</p>
+        <p><strong>Reflection:</strong> This epic worked because it converted a broad educational ambition into a sequence of linked but separable tickets. It also made dependencies visible: writers could not finalize without message hierarchy, designers needed content readiness, and event promotion had to align with external dates. The limitation was that educational value was easier to define than direct performance measurement, so the team sometimes defaulted to output volume instead of deeper learning outcomes.</p>
+      </div>
+
+      <div class="ticket">
+        <div class="pill-row">
+          <span class="pill">Example 3</span>
+          <span class="pill">Story map / backlog</span>
+        </div>
+        <h3>User journey to backlog: TWIShop launch map</h3>
+        <p><strong>User journey:</strong> Discover shop → understand mission → browse highlighted items → trust product quality → inquire or purchase → share or revisit.</p>
+        <p><strong>Mapped backlog slices:</strong> discovery assets, mission explanation block, item showcase cards, FAQ about pricing/condition, inquiry workflow, post-purchase follow-up content.</p>
+        <p><strong>Reflection:</strong> This mapping helped the team see that a launch is not only a media event; it is a stitched user journey. The exercise reduced the risk of overinvesting in attractive visuals while neglecting trust-building and conversion steps. It also improved prioritization because the minimum viable launch could be defined as the smallest journey that still allowed a user to understand, trust, and act.</p>
+      </div>
+
+      <div class="board">
+        <div class="column">
+          <h4>Backlog</h4>
+          <div class="mini-card">Define seasonal campaign message hierarchy</div>
+          <div class="mini-card">Select TWIShop products for next drop</div>
+        </div>
+        <div class="column">
+          <h4>In Refinement</h4>
+          <div class="mini-card">Draft wellness-education carousel copy</div>
+          <div class="mini-card">Write user story acceptance criteria</div>
+        </div>
+        <div class="column">
+          <h4>In Progress</h4>
+          <div class="mini-card">Run photoshoot and asset review</div>
+          <div class="mini-card">Design launch visuals and CTA sequence</div>
+        </div>
+        <div class="column">
+          <h4>Done</h4>
+          <div class="mini-card">Approve publication calendar</div>
+          <div class="mini-card">Publish and review initial performance</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reflection" class="essay">
+      <div class="card">
+        <div class="section-head">
+          <div class="section-kicker">Benefits and limits</div>
+          <h2>What agile improved and where it broke down</h2>
+        </div>
+        <p>The most visible benefit from applying agile practices was improved coordination across team, process, and output. From the team perspective, regular check-ins and visible work reduced ambiguity and created accountability without requiring constant top-down supervision. From the process perspective, shorter planning loops made it easier to absorb changes in campaign timing, resource availability, or operational constraints. From the product and service perspective, work was more clearly linked to user value, whether that value took the form of learning, trust, engagement, or purchase readiness.</p>
+        <p>Another benefit was prioritization discipline. In mission-driven organizations, nearly every initiative can feel important. Agile methods provided a way to ask which item delivered value now, which dependency blocked progress, and what should wait. This was particularly relevant in TWIShop, where media production can easily expand if boundaries are not explicit. A backlog or sprint boundary did not eliminate ambition, but it turned ambition into sequenced decisions.</p>
+        <p>However, important limitations also appeared. First, not everyone interpreted urgency or “done” in the same way. Creative and strategy work often have fuzzy completion criteria, so tasks that looked small could become open-ended. Second, capacity was uneven because contributors had different skill levels, availability, or confidence. Third, the social-enterprise mission itself created a tension between educational depth and execution speed: content quality mattered, but so did consistency and timeliness.</p>
+        <p>The root causes of these limitations became clearer through reflection. Ambiguity in completion criteria usually pointed to weak refinement rather than poor motivation. Delays across people often revealed hidden dependencies or unclear handoffs rather than laziness. Output overload usually reflected insufficient work-in-progress limits or too many parallel priorities. In that sense, the underlying problems were structural and process-based. Retrospective thinking was valuable because it shifted the team from personal frustration toward system diagnosis.</p>
+      </div>
+      <div class="card">
+        <div class="section-head">
+          <div class="section-kicker">Improvement plan</div>
+          <h2>What should change next</h2>
+        </div>
+        <p>The main change for future application would be to make requirement quality more explicit before execution starts. Every major ticket should contain a user, a value statement, a completion definition, an owner, and a lightweight success metric. This would improve estimation and protect the team from entering work that is exciting but under-specified. It would also strengthen the connection between product thinking and operational execution, which is especially important in cross-functional environments.</p>
+        <p>A second change would be to formalize a dual operating model: Kanban for continuous content flow and Scrum for launch-specific initiatives. That distinction already existed informally, but naming it would help prevent friction caused by forcing continuous work into sprint logic or, conversely, treating launch-critical work as if it had no deadline structure. A lightweight cadence of weekly flow review, sprint planning for campaigns, and monthly retrospective would probably fit this environment better than one universal framework.</p>
+        <p>A third change would be to use A3 problem-solving whenever the same bottleneck appears at least twice. For example, if approvals repeatedly delay publication, the team should document the current process, identify why the queue forms, test a countermeasure such as earlier review checkpoints, and track whether lead time improves. This creates a stronger culture of inspect-and-adapt and makes retrospectives actionable instead of merely conversational.</p>
+        <p>Overall, the case shows that agile ways of working are less about copying a software ritual vocabulary and more about building a repeatable system for visibility, collaboration, prioritization, and learning. Scrum, Kanban, retrospectives, and A3 each contributed something different, but their common value lay in helping a multi-skilled team translate mission into coordinated action. That is why the most defensible conclusion is not that one framework was “best,” but that agile became effective when the team used the right level of structure for the type of work in front of them.</p>
+      </div>
+    </section>
+
+    <section id="references" class="card refs">
+      <div class="section-head">
+        <div class="section-kicker">APA style</div>
+        <h2>Reference list for submission</h2>
+      </div>
+      <p>Agile Alliance. (2023, August 15). <em>From Scrum to Kanban - Case study for teams</em>. https://agilealliance.org/resources/experience-reports/scrum-kanban-teams-journey/</p>
+      <p>Beck, K., Beedle, M., van Bennekum, A., Cockburn, A., Cunningham, W., Fowler, M., Grenning, J., Highsmith, J., Hunt, A., Jeffries, R., Kern, J., Marick, B., Martin, R. C., Mellor, S., Schwaber, K., Sutherland, J., &amp; Thomas, D. (2001). <em>Manifesto for Agile Software Development</em>. https://agilemanifesto.org/</p>
+      <p>Beck, K., et al. (2001). <em>Principles behind the Agile Manifesto</em>. https://agilemanifesto.org/principles.html</p>
+      <p>Easy Agile. (n.d.). <em>How to write good user stories in agile software development</em>. https://www.easyagile.com/blog/how-to-write-good-user-stories-in-agile-software-development/</p>
+      <p>Janek, M. (2024, September 9). <em>Writing meaningful user stories with the INVEST principle</em>. LogRocket. https://blog.logrocket.com/product-management/writing-meaningful-user-stories-invest-principle/</p>
+      <p>PLOS ONE. (2013, October 28). <em>The A3 problem solving report: A 10-step scientific method to structure PDCA in health care</em>. https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0076833</p>
+      <p>Scrum.org. (n.d.). <em>Agile ways of working</em>. https://www.scrum.org/agile-ways-working</p>
+      <p>The Project Group. (2024, July 31). <em>Agile retrospective - Methods and examples</em>. https://www.theprojectgroup.com/blog/en/agile-retrospective/</p>
+      <p>Total Wellness Initiative Singapore. (n.d.). <em>Our framework</em>. https://www.totalwellnesssg.com/framework</p>
+      <p>Total Wellness Initiative Singapore. (n.d.). <em>Explore the 10 dimensions</em>. https://www.totalwellnesssg.com/twis10</p>
+      <p class="small">Note: The website body is intentionally written in a readable essay format for web presentation. For final academic submission, this page can be printed to PDF after deployment, and the reference list above can be retained as the APA section.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container small">Built as a single-file responsive HTML essay website for GitHub + Vercel deployment.</div>
+  </footer>
+</body>
+</html>
